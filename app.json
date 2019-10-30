@@ -1,0 +1,5 @@
+{
+  "name": "ReGift",
+  "description": "App to giveaway unwanted gifts.",
+  "addons": [ "heroku-postgresql" ]
+}

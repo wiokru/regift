@@ -1,0 +1,1 @@
+web: java -jar target/regift-1.0.jar
