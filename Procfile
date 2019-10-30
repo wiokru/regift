@@ -1,1 +1,1 @@
-web: java -jar target/regift-1.0.jar
+web: java -jar target/regift-0.0.1-SNAPSHOT.jar
