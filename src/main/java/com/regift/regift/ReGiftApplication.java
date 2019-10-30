@@ -24,7 +24,8 @@ public class ReGiftApplication {
 	}
 
 	@RequestMapping("/")
-	String index() {
+	public String index() {
+		System.out.println("Hello there!");
 		return "index";
 	}
 
