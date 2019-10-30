@@ -1,5 +1,11 @@
 {
   "name": "ReGift",
   "description": "App to giveaway unwanted gifts.",
-  "addons": [ "heroku-postgresql" ]
+  "repository": "https://github.com/wiokru/regift",
+  "addons": [ "heroku-postgresql" ],
+   "keywords": [
+     "unwanted gift", "gift", 
+     "unwanted present", "giveaway",
+     "present"
+  ],
 }
