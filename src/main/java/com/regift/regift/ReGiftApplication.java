@@ -13,11 +13,11 @@ import javax.sql.DataSource;
 @SpringBootApplication
 public class ReGiftApplication {
 
-//	@Value("${spring.datasource.url}")
-//	private String dbUrl;
+	@Value("${spring.datasource.url}")
+	private String dbUrl;
 
-//	@Autowired
-//	private DataSource dataSource;
+	@Autowired
+	private DataSource dataSource;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ReGiftApplication.class, args);
