@@ -24,9 +24,14 @@ public class ReGiftApplication {
 	}
 
 	@RequestMapping("/")
-	public void index() {
-		System.out.println("Hello there!");
-//		return "index";
+	String get(){
+		//mapped to hostname:port/home/
+		return "Hello from get";
+	}
+	@RequestMapping("/index")
+	String index(){
+		//mapped to hostname:port/home/index/
+		return "Hello from index";
 	}
 
 }
