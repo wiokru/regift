@@ -1,15 +1,9 @@
 package com.regift.regift;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.sql.DataSource;
-
-@Controller
 @SpringBootApplication
 public class ReGiftApplication {
 
@@ -22,16 +16,4 @@ public class ReGiftApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ReGiftApplication.class, args);
 	}
-
-	@RequestMapping("/")
-	String get(){
-		//mapped to hostname:port/home/
-		return "Hello from get";
-	}
-	@RequestMapping("/index")
-	String index(){
-		//mapped to hostname:port/home/index/
-		return "Hello from index";
-	}
-
 }
