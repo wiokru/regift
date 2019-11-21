@@ -8,6 +8,22 @@
     <h2>Welcome on ReGift!</h2>
     <h4> Exchange unwanted gifts with someone else!</h4>
     <h4> We're here for you :)</h4>
+    <form action="save" method="post">
+        <table>
+            <tr>
+                <td><label for="user-name">User Name</label></td>
+                <td><input type="text" name="name"></input></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="text" name="email"></input></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit"></input></td>
+            </tr>
+        </table>
+    </form>
     <button th:type="button">Log in</button>
     <button th:type="button">Join us</button>
 
