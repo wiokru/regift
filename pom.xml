@@ -12,7 +12,7 @@
 	<artifactId>regift</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ReGift</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Recycle unwanted gifts.</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -55,6 +55,30 @@
 					<artifactId>thymeleaf-layout-dialect</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.4.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>4.3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>angular-animate</artifactId>
+			<version>1.7.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>select2</artifactId>
+			<version>4.0.10</version>
 		</dependency>
 
 <!--		<dependency>-->
