@@ -12,26 +12,47 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/utils.css}"/>
 
-    <title>ReGift Home Page</title>
+    <title>ReGift - Sing up</title>
 </head>
 <body>
+
 <div class="limiter">
     <div class="container-login100">
-        <div class="wrap-login100 p-l-50 p-r-50 p-t-55 p-b-30">
+        <div class="wrap-login100 p-l-50 p-r-50 p-t-45 p-b-30">
 
             <form class="login100-form validate-form">
                 <span class="login100-form-title p-b-20">
-                    Welcome on ReGift!
+                    Create new account
                 </span>
-                <label class="login100-form-label p-b-35 p-l-2 p-r-2">
-                    Exchange unwanted gifts with someone else! We're here for you :)
-                </label>
-
                 <div class="wrap-input100 validate-input m-b-16" data-validate="Invalid email">
                     <input class="input100" type="text" name="email" placeholder="Email">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                             <span class="lnr lnr-envelope"></span>
+                        </span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Name is required">
+                    <input class="input100" type="text" name="name" placeholder="Name">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                            <span class="lnr lnr-user"></span>
+                        </span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Nick is required">
+                    <input class="input100" type="text" name="nick" placeholder="Nick">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                            <span class="lnr lnr-pencil"></span>
+                        </span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Nick is required">
+                    <input class="input100" type="text" name="city" placeholder="City">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                            <span class="lnr lnr-map-marker"></span>
                         </span>
                 </div>
 
@@ -43,27 +64,22 @@
                         </span>
                 </div>
 
-                <div class="contact100-form-checkbox m-l-4">
-                    <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                    <label class="label-checkbox100" for="ckb1">
-                        Remember me
-                    </label>
-                </div>
-
                 <div class="container-login100-form-btn p-t-25">
                     <button class="login100-form-btn">
-                        Login
+                        Register
                     </button>
                 </div>
 
-                <div class="text-center w-full p-t-115">
-                        <span class="txt1">
-                            Want to join us?
-                        </span>
+                <div class="text-center w-full p-t-55">
                     <a class="txt1 bo1 hov1" th:href="@{/signup}">
-                        Sign up now
+                        About us
+                    </a>
+                    <label class="p-r-15"></label>
+                    <a class="txt1 bo1 hov1" th:href="@{/}">
+                        Log In
                     </a>
                 </div>
+
             </form>
         </div>
     </div>
@@ -73,7 +89,7 @@
 <script th:src="@{/vendor/bootstrap/js/popper.js}"></script>
 <script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
 <script th:src="@{/vendor/select2/select2.min.js}"></script>
-<script th:src="@{/js/login.js}"></script>
+<script th:src="@{/js/signup.js}"></script>
 
 </body>
 </html>
