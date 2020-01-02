@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class SignUpController {
 
     @RequestMapping("/signup")
-    public ModelAndView signup(){
+    public ModelAndView signup() {
         return new ModelAndView("signup");
     }
 }
