@@ -22,6 +22,8 @@ public class User {
     @Column(name = "city")
     private String city;
 
+    public User() {}
+
     public int getId() {
         return id;
     }

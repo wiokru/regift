@@ -2,9 +2,11 @@ package com.regift.regift;
 
 
 import com.zaxxer.hikari.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import javax.sql.DataSource;
+import java.sql.SQLException;
 
 @Configuration
 public class DatabaseConfig {
@@ -12,8 +14,11 @@ public class DatabaseConfig {
     @Value("${spring.datasource.url}")
     private String dbUrl;
 
+    @Autowired
+    private DataSource dataSource;
+
     @Bean
-    public DataSource dataSource() {
+    public DataSource dataSource() throws SQLException {
         if (dbUrl == null || dbUrl.isEmpty()){
             return new HikariDataSource();
         }
