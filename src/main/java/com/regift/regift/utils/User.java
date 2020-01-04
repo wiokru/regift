@@ -4,7 +4,7 @@ package com.regift.regift.utils;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -23,6 +23,14 @@ public class User {
     private String city;
 
     public User() {}
+
+    public User(String email, String name, String surname, String password, String city) {
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.city = city;
+    }
 
     public int getId() {
         return id;

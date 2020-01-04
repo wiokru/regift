@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'error')}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/Linearicons-Free-v1.0.0/icon-font.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/utils.css}"/>
+
+    <title>Error!</title>
+</head>
+<body>
+<!--/*@thymesVar id="message" type="String"*/-->
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-50 p-r-50 p-t-45 p-b-30">
+            <p th:text="${message}">Exception message</p>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
