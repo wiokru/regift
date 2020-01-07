@@ -22,8 +22,8 @@ import java.util.Map;
 @RestController
 public class SignUpController {
 
-//    @Value("${spring.datasource.url}")
-//    private String dbUrl;
+    @Value("${spring.datasource.url}")
+    private String dbUrl;
 
     @Autowired
     private DataSource dataSource;
@@ -55,16 +55,16 @@ public class SignUpController {
         }
     }
 
-//    @Bean
-//    public DataSource dataSource() throws SQLException {
-//        if (dbUrl == null || dbUrl.isEmpty()) {
-//            return new HikariDataSource();
-//        } else {
-//            HikariConfig config = new HikariConfig();
-//            config.setJdbcUrl(dbUrl);
-//            return new HikariDataSource(config);
-//        }
-//    }
+    @Bean
+    public DataSource dataSource() throws SQLException {
+        if (dbUrl == null || dbUrl.isEmpty()) {
+            return new HikariDataSource();
+        } else {
+            HikariConfig config = new HikariConfig();
+            config.setJdbcUrl(dbUrl);
+            return new HikariDataSource(config);
+        }
+    }
 
 //    public void signUp(@ModelAttribute("name") String name){
 //
