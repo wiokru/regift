@@ -45,15 +45,13 @@ public class SignUpController {
             User user = new User(email, name, surname, password, city);
 
             Statement stmt = connection.createStatement();
-            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS users");
-            stmt.executeUpdate("INSERT INTO users VALUES user");
+//            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS users");
+            stmt.executeUpdate("INSERT INTO users VALUES (user)");
 
             return "login";
         } catch (Exception e) {
             model.put("message", e.getMessage());
             System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getLocalizedMessage());
-            e.printStackTrace();
-
             System.out.println("YYYYYYYYYYYYYYYYYYYYYY" + model);
             return "error";
         }
