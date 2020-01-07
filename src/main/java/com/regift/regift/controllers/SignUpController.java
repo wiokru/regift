@@ -1,20 +1,29 @@
 package com.regift.regift.controllers;
 
 import com.regift.regift.utils.User;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Map;
 
 @RestController
 public class SignUpController {
+
+//    @Value("${spring.datasource.url}")
+//    private String dbUrl;
 
     @Autowired
     private DataSource dataSource;
@@ -45,6 +54,17 @@ public class SignUpController {
             return "error";
         }
     }
+
+//    @Bean
+//    public DataSource dataSource() throws SQLException {
+//        if (dbUrl == null || dbUrl.isEmpty()) {
+//            return new HikariDataSource();
+//        } else {
+//            HikariConfig config = new HikariConfig();
+//            config.setJdbcUrl(dbUrl);
+//            return new HikariDataSource(config);
+//        }
+//    }
 
 //    public void signUp(@ModelAttribute("name") String name){
 //
