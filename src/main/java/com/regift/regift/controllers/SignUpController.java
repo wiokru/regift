@@ -35,7 +35,7 @@ public class SignUpController {
     }
 
     @PostMapping("/signup")
-    String registerUser(Map<String, Object> model,
+    ModelAndView registerUser(Map<String, Object> model,
                         @ModelAttribute("name") String name,
                         @ModelAttribute("surname") String surname,
                         @ModelAttribute("email") String email,
@@ -48,10 +48,10 @@ public class SignUpController {
             stmt.executeUpdate("CREATE TABLE IF NOT EXISTS users");
             stmt.executeUpdate("INSERT INTO users VALUES user");
 
-            return "login";
+            return new ModelAndView("login");
         } catch (Exception e) {
             model.put("message", e.getMessage());
-            return "error";
+            return new ModelAndView("error", model);
         }
     }
 
