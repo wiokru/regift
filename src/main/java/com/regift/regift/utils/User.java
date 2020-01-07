@@ -2,10 +2,18 @@ package com.regift.regift.utils;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "users")
-public class User {
+//@NamedQueries({
+//        @NamedQuery(name = "ContactList.findAll", query = "SELECT c FROM users c"),
+//        @NamedQuery(name = "ContactList.findByFirstname", query = "SELECT c FROM ContactList c WHERE c.firstname = :firstname"),
+//        @NamedQuery(name = "ContactList.findByLastname", query = "SELECT c FROM ContactList c WHERE c.lastname = :lastname"),
+//        @NamedQuery(name = "ContactList.findByMobile", query = "SELECT c FROM ContactList c WHERE c.mobile = :mobile"),
+//        @NamedQuery(name = "ContactList.findByEmail", query = "SELECT c FROM ContactList c WHERE c.email = :email")})
+
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
