@@ -20,6 +20,7 @@ public class SignUpController {
         return new ModelAndView("signup");
     }
 
+    //@PostMapping("/signup")
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String registerUser(Model model,
                         @ModelAttribute("name") String name,
