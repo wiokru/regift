@@ -43,6 +43,8 @@ public class SignUpController {
                         @ModelAttribute("passowrd") String password) {
         try (Connection connection = dataSource.getConnection()) {
             User user = new User(email, name, surname, password, city);
+            System.out.println("YYYYYYYY" + connection);
+            System.out.println("ZZZZZZZZZZZZZZZZ" + connection.getSchema());
 
             Statement stmt = connection.createStatement();
 //            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS users");
