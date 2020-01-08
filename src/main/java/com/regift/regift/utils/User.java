@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"}, name = "uniqueEmailConstraint")})
+//@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"}, name = "uniqueEmailConstraint")})
 //@NamedQueries({
 //        @NamedQuery(name = "ContactList.findAll", query = "SELECT c FROM users c"),
 //        @NamedQuery(name = "ContactList.findByFirstname", query = "SELECT c FROM ContactList c WHERE c.firstname = :firstname"),
@@ -17,17 +17,17 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+//    @Column(name = "id")
     private int id;
-    @Column(name = "email", nullable = false, unique = true)
+//    @Column(name = "email", nullable = false, unique = true)
     private String email;
-    @Column(name = "name")
+//    @Column(name = "name")
     private String name;
-    @Column(name = "surname")
+//    @Column(name = "surname")
     private String surname;
-    @Column(name = "password")
+//    @Column(name = "password")
     private String password;
-    @Column(name = "city")
+//    @Column(name = "city")
     private String city;
 
     public User() {}
