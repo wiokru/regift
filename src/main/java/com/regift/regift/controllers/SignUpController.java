@@ -1,6 +1,7 @@
 package com.regift.regift.controllers;
 
 import com.regift.regift.utils.User;
+import com.regift.regift.utils.UserRepository;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class SignUpController {
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping("/signup")
     public ModelAndView signup(Model model) {
         model.addAttribute("tempUser", new User());
@@ -41,15 +45,26 @@ public class SignUpController {
                         @ModelAttribute("email") String email,
                         @ModelAttribute("city") String city,
                         @ModelAttribute("passowrd") String password) {
-        try (Connection connection = dataSource.getConnection()) {
+//        try (Connection connection = dataSource.getConnection()) {
+//            User user = new User(email, name, surname, password, city);
+//
+//            Statement stmt = connection.createStatement();
+////            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS users");
+//            stmt.executeUpdate("INSERT INTO users VALUES (user)");
+//
+//            return "login";
+//        } catch (Exception e) {
+//            model.put("message", e.getMessage());
+//            System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage());
+//            return "error";
+//        }
+
+        try {
             User user = new User(email, name, surname, password, city);
-
-            Statement stmt = connection.createStatement();
-//            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS users");
-            stmt.executeUpdate("INSERT INTO users VALUES (user)");
-
+            userRepository.save(user);
             return "login";
-        } catch (Exception e) {
+        }
+        catch (Exception e){
             model.put("message", e.getMessage());
             System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage());
             return "error";
