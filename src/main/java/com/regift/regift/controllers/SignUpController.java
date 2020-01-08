@@ -4,10 +4,7 @@ import com.regift.regift.utils.User;
 import com.regift.regift.utils.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Map;
@@ -23,8 +20,8 @@ public class SignUpController {
         return new ModelAndView("signup");
     }
 
-    @PostMapping("/signup")
-    public String registerUser(Map<String, Object> model,
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public String registerUser(Model model,
                         @ModelAttribute("name") String name,
                         @ModelAttribute("surname") String surname,
                         @ModelAttribute("email") String email,
@@ -36,7 +33,7 @@ public class SignUpController {
             return "login";
         }
         catch (Exception e){
-            model.put("message", e.getMessage());
+            model.addAttribute("message", e.getMessage());
             System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage() + '\n' + e.getLocalizedMessage());
             return "error";
         }
