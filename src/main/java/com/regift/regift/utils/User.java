@@ -17,17 +17,17 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id")
+    @Column(name = "id")
     private Long id;
-    //    @Column(name = "email", nullable = false, unique = true)
+        @Column(name = "email", nullable = false, unique = true)
     private String email;
-//    @Column(name = "name")
+    @Column(name = "name")
     private String name;
-//    @Column(name = "surname")
+    @Column(name = "surname")
     private String surname;
-//    @Column(name = "password")
+    @Column(name = "password")
     private String password;
-//    @Column(name = "city")
+    @Column(name = "city")
     private String city;
 
     public User() {}

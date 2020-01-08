@@ -66,7 +66,7 @@ public class SignUpController {
         }
         catch (Exception e){
             model.put("message", e.getMessage());
-            System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage());
+            System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage() + '\n' + e.getLocalizedMessage());
             return "error";
         }
     }
