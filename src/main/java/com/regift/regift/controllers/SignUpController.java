@@ -24,7 +24,7 @@ public class SignUpController {
     }
 
     @PostMapping("/signup")
-    String registerUser(Map<String, Object> model,
+    public String registerUser(Map<String, Object> model,
                         @ModelAttribute("name") String name,
                         @ModelAttribute("surname") String surname,
                         @ModelAttribute("email") String email,
