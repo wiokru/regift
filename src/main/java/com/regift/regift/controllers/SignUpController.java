@@ -43,8 +43,6 @@ public class SignUpController {
                         @ModelAttribute("passowrd") String password) {
         try (Connection connection = dataSource.getConnection()) {
             User user = new User(email, name, surname, password, city);
-            System.out.println("YYYYYYYY" + connection);
-            System.out.println("ZZZZZZZZZZZZZZZZ" + connection.getSchema());
 
             Statement stmt = connection.createStatement();
 //            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS users");
@@ -53,8 +51,7 @@ public class SignUpController {
             return "login";
         } catch (Exception e) {
             model.put("message", e.getMessage());
-            System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getLocalizedMessage());
-            System.out.println("YYYYYYYYYYYYYYYYYYYYYY" + model);
+            System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage());
             return "error";
         }
     }
