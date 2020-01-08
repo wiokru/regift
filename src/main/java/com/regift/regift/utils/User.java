@@ -16,7 +16,8 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "auto_gen")
+    @SequenceGenerator(name = "auto_gen", sequenceName = "A")
 //    @Column(name = "id")
     private int id;
 //    @Column(name = "email", nullable = false, unique = true)
