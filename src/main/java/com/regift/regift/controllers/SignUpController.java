@@ -15,18 +15,13 @@ public class SignUpController {
     @Autowired
     private UserRepository userRepository;
 
-//    @GetMapping("/signup")
-//    public ModelAndView signup(Model model) {
-//        return new ModelAndView("signup");
-//    }
-
     @GetMapping("/signup")
-    public String signup(Model model) {
-        return "signup";
+    public ModelAndView signup(Model model) {
+        return new ModelAndView("signup");
     }
 
-    //@PostMapping("/signup")
-    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    @PostMapping("/signup")
+//    @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String registerUser(Model model,
                                @ModelAttribute("name") String name,
                                @ModelAttribute("surname") String surname,
