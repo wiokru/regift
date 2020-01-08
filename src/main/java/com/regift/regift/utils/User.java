@@ -4,8 +4,8 @@ package com.regift.regift.utils;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"}, name = "uniqueEmailConstraint")})
+@Entity(name = "`user`")
+//@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"}, name = "uniqueEmailConstraint")})
 //@NamedQueries({
 //        @NamedQuery(name = "ContactList.findAll", query = "SELECT c FROM users c"),
 //        @NamedQuery(name = "ContactList.findByFirstname", query = "SELECT c FROM ContactList c WHERE c.firstname = :firstname"),
