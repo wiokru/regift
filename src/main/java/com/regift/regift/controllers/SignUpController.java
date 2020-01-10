@@ -27,7 +27,7 @@ public class SignUpController {
                                @ModelAttribute("surname") String surname,
                                @ModelAttribute("email") String email,
                                @ModelAttribute("city") String city,
-                               @ModelAttribute("passowrd") String password) {
+                               @ModelAttribute("password") String password) {
         try {
             User user = new User(email, name, surname, password, city);
             userRepository.save(user);
