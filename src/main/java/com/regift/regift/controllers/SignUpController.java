@@ -31,7 +31,7 @@ public class SignUpController {
         try {
             User user = new User(email, name, surname, password, city);
             userRepository.save(user);
-            return new ModelAndView("login");
+            return new ModelAndView("home");
         } catch (Exception e) {
 //            model.addAttribute("message", e.getMessage());
             System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage() + '\n' + e.getLocalizedMessage());
