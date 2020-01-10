@@ -22,7 +22,7 @@ public class SignUpController {
 
     @PostMapping("/signup")
 //    @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String registerUser(Model model,
+    public ModelAndView registerUser(Model model,
                                @ModelAttribute("name") String name,
                                @ModelAttribute("surname") String surname,
                                @ModelAttribute("email") String email,
@@ -31,11 +31,13 @@ public class SignUpController {
         try {
             User user = new User(email, name, surname, password, city);
             userRepository.save(user);
-            return "login";
+            return new ModelAndView("login");
         } catch (Exception e) {
-            model.addAttribute("message", e.getMessage());
+//            model.addAttribute("message", e.getMessage());
             System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage() + '\n' + e.getLocalizedMessage());
-            return "error";
+            ModelAndView modelAndView = new ModelAndView("error");
+            modelAndView.addObject("message", e.getMessage());
+            return modelAndView;
         }
     }
 }
