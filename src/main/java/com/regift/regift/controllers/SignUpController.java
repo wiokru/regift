@@ -22,7 +22,6 @@ public class SignUpController {
     }
 
     @PostMapping("/signup")
-//    @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ModelAndView registerUser(Model model,
                                      HttpServletResponse response,
                                @ModelAttribute("name") String name,
