@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 @RestController
@@ -23,6 +24,7 @@ public class SignUpController {
     @PostMapping("/signup")
 //    @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ModelAndView registerUser(Model model,
+                                     HttpServletResponse response,
                                @ModelAttribute("name") String name,
                                @ModelAttribute("surname") String surname,
                                @ModelAttribute("email") String email,
@@ -31,7 +33,8 @@ public class SignUpController {
         try {
             User user = new User(email, name, surname, password, city);
             userRepository.save(user);
-            return new ModelAndView("home");
+            return new ModelAndView("redirect:/");
+//            response.sendRedirect("/");
         } catch (Exception e) {
 //            model.addAttribute("message", e.getMessage());
             System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage() + '\n' + e.getLocalizedMessage());
