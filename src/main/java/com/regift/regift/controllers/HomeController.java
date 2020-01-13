@@ -32,6 +32,7 @@ public class HomeController {
             } else {
                 //PASSWORD INCORRECT
                 System.out.printf("YYYYYYYYYYYYYYYYYYYY wrong pass");
+                System.out.println("AAAAA " + result.get(0).getPassword() + " AAAAA " + password);
             }
         } else {
             System.out.println("ZZZZZZZZZZZZZZZZZZZZ user dont exist - plz sign up");
