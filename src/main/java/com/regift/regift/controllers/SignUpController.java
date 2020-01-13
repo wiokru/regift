@@ -24,18 +24,18 @@ public class SignUpController {
     @PostMapping("/signup")
     public ModelAndView registerUser(Model model,
                                      HttpServletResponse response,
-                               @ModelAttribute("name") String name,
-                               @ModelAttribute("surname") String surname,
-                               @ModelAttribute("email") String email,
-                               @ModelAttribute("city") String city,
-                               @ModelAttribute("password") String password) {
+                                     @ModelAttribute("name") String name,
+                                     @ModelAttribute("surname") String surname,
+                                     @ModelAttribute("email") String email,
+                                     @ModelAttribute("city") String city,
+                                     @ModelAttribute("password") String password) {
         try {
             User user = new User(email, name, surname, password, city);
             userRepository.save(user);
             return new ModelAndView("redirect:/");
 //            response.sendRedirect("/");
         } catch (Exception e) {
-//            model.addAttribute("message", e.getMessage());
+            model.addAttribute("message", e.getMessage());
             System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage() + '\n' + e.getLocalizedMessage());
             ModelAndView modelAndView = new ModelAndView("error");
             modelAndView.addObject("message", e.getMessage());
