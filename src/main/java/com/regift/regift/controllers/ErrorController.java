@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class ErrorController {
     @GetMapping("/error")
-    public ModelAndView error(Model model) {
+    public ModelAndView error() {
         return new ModelAndView("error");
     }
 }
