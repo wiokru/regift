@@ -36,7 +36,7 @@ public class SignUpController {
 //            response.sendRedirect("/");
         } catch (Exception e) {
             System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage() + '\n' + e.getLocalizedMessage());
-            return new ModelAndView("redirect:/error");
+            return new ModelAndView("error");
         }
     }
 }
