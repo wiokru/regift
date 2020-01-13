@@ -35,11 +35,8 @@ public class SignUpController {
             return new ModelAndView("redirect:/");
 //            response.sendRedirect("/");
         } catch (Exception e) {
-            model.addAttribute("message", e.getMessage());
             System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage() + '\n' + e.getLocalizedMessage());
-            ModelAndView modelAndView = new ModelAndView("error");
-            modelAndView.addObject("message", e.getMessage());
-            return modelAndView;
+            return new ModelAndView("redirect:/error");
         }
     }
 }
