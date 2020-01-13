@@ -4,11 +4,13 @@ import com.regift.regift.utils.User;
 import com.regift.regift.utils.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.Map;
 
 @RestController
 public class SignUpController {
@@ -36,7 +38,7 @@ public class SignUpController {
 //            response.sendRedirect("/");
         } catch (Exception e) {
             System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage() + '\n' + e.getLocalizedMessage());
-            return new ModelAndView("error");
+            return new ModelAndView("redirect:/error");
         }
     }
 }
