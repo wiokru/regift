@@ -14,8 +14,8 @@ public class Post implements Serializable{
     @Column(name = "id")
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "user")
-    private User user;
+//    @Column(name = "user")
+//    private User user;
     @Column(name = "title")
     private String title;
     @Column(name = "description")
@@ -30,7 +30,7 @@ public class Post implements Serializable{
     public Post(String title, String description, User user) {
         this.title = title;
         this.description = description;
-        this.user = user;
+//        this.user = user;
     }
 
     public Long getId() {
@@ -41,13 +41,13 @@ public class Post implements Serializable{
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public String getTitle() {
         return title;

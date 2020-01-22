@@ -14,11 +14,11 @@ public class UserHomeController {
     @Autowired
     private UserRepository userRepository;
 
-//    @Autowired
-//    private PostRepository postRepository;
-//
-//    @GetMapping("/user/{id}/home")
-//    public ModelAndView userHomePage(@PathVariable String id) {
-//        return new ModelAndView("user_home");
-//    }
+    @Autowired
+    private PostRepository postRepository;
+
+    @GetMapping("/user/{id}/home")
+    public ModelAndView userHomePage(@PathVariable String id) {
+        return new ModelAndView("user_home");
+    }
 }
