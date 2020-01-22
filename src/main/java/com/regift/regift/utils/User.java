@@ -24,8 +24,8 @@ public class User implements Serializable {
     private String password;
     @Column(name = "city")
     private String city;
-//    @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
-//    private List<Post> posts;
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    private List<Post> posts;
 
     public User() {}
 
