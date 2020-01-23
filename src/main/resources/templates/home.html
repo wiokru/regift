@@ -43,18 +43,9 @@
                         </span>
                 </div>
 
-<!--                <div class="contact100-form-checkbox m-l-4">-->
-<!--                    <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">-->
-<!--                    <label class="label-checkbox100" for="ckb1">-->
-<!--                        Remember me-->
-<!--                    </label>-->
-<!--                </div>-->
-
-
                 <div class="m-l-4">
-                    <label class="label-checkbox100" th:name="error_message">
-
-                    </label>
+                   <!--/*@thymesVar id="error_message" type="java.lang.String"*/-->
+                   <label th:text="${error_message}"></label>
                 </div>
 
                 <div class="container-login100-form-btn p-t-25">

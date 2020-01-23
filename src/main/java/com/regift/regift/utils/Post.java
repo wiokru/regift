@@ -14,7 +14,6 @@ public class Post implements Serializable{
     @Column(name = "id")
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "user")
     private User user;
     @Column(name = "title")
     private String title;
