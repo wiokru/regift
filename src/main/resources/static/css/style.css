@@ -511,3 +511,9 @@ iframe {
         padding-right: 15px;
     }
 }
+
+.error-message {
+    text-align: center;
+    font-family: Raleway-Regular;
+    color: #c80000;
+}
