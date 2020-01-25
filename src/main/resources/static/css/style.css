@@ -531,6 +531,12 @@ iframe {
     color: #c80000;
 }
 
+.info-message {
+    text-align: center;
+    font-family: Raleway-Regular;
+    color: #4CAF50;
+}
+
 .button-wrap-container {
     float: right;
     width: 50%;
