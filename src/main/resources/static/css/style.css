@@ -219,6 +219,12 @@ iframe {
     overflow: hidden;
 }
 
+.wrap-login300 {
+    width: 90%;
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+}
 
 
 /*------------------------------------------------------------------
@@ -523,4 +529,10 @@ iframe {
     text-align: center;
     font-family: Raleway-Regular;
     color: #c80000;
+}
+
+.button-wrap-container {
+    float: right;
+    width: 50%;
+    padding: 10px;
 }

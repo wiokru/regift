@@ -33,24 +33,30 @@
             <a href="/" id="logout"> Logout <i class="icon fa fa-sign-out fa-2x"></i></a>
         </div>
 
+
         <div class="wrap-login300 p-l-50 p-r-50 p-t-55 p-b-30">
             <span class="login100-form-title p-b-20">
-                        Posts
+                    Your posts
             </span>
-            <div th:if="${!postList.isEmpty()}">
+            <div class="container-login100-form-btn p-t-25">
+                <button type="submit" class="login100-form-btn">
+                    ADD NEW POST
+                </button>
+            </div>
+
+            <div th:if="${postList != null}">
                 <ul th:object="${postList}" id="userTable" border="1">
                     <li th:each="post :${postList}">
                         <p th:text="${post.getTitle()}"></p>
                         <p th:text="${post.getDescription()}"></p>
                         <p th:text="${post.getCreationDate().toString()}"></p>
-                        <p th:text="${post.getUser().getEmail()}"></p>
-                        <p th:text="${post.getUser().getCity()}"></p>
+                        <!--                        TODO: Post add, edit and post delete  -->
                     </li>
                 </ul>
             </div>
             <div th:if="${postList.isEmpty()}">
                 <label class="login100-form-label p-b-35 p-l-2 p-r-2">
-                    There are no posts to show! You may add first :)
+                    You have no posts yet.
                 </label>
             </div>
         </div>

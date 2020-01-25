@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/Linearicons-Free-v1.0.0/icon-font.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/utils.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}"/>
+
+    <title>ReGift</title>
+</head>
+<body>
+
+<!--/*@thymesVar id="postList" type="java.util.List"*/-->
+<!--/*@thymesVar id="currentUser" type="com.regift.regift.utils.User"*/-->
+
+
+<div class="limiter">
+    <div class="container-login100">
+        <div id="mySidenav" class="sidenav">
+            <a th:href="@{/user/{id}/home(id = ${currentUser.getId()})}" id="dashboard"> Dashboard <i
+                    class="icon fa fa-home fa-2x"></i></a>
+            <a th:href="@{/user/{id}/my_posts(id = ${currentUser.getId()})}" id="my_posts"> My posts <i
+                    class="icon fa fa-th-list fa-2x"></i></a>
+            <a th:href="@{/user/{id}/my_info(id = ${currentUser.getId()})}" id="my_info"> My info <i
+                    class="icon fa fa-user fa-2x"></i></a>
+            <a href="/" id="logout"> Logout <i class="icon fa fa-sign-out fa-2x"></i></a>
+        </div>
+
+        <div class="wrap-login300 p-l-50 p-r-50 p-t-55 p-b-30">
+            <form class="login100-form validate-form" th:method="POST">
+            <span class="login100-form-title p-b-20">
+                    Your info
+            </span>
+
+                <!-- TODO: User edit  -->
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Invalid email">
+                    <input class="input100" type="text" th:name="email" th:value="${currentUser.getEmail()}">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                            <span class="lnr lnr-envelope"></span>
+                        </span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Name is required">
+                    <input class="input100" type="text" th:name="name" th:value="${currentUser.getName()}">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                            <span class="lnr lnr-user"></span>
+                        </span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Surname is required">
+                    <input class="input100" type="text" th:name="surname" th:value="${currentUser.getSurname()}">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                            <span class="lnr lnr-user"></span>
+                        </span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Nick is required">
+                    <input class="input100" type="text" th:name="city" th:value="${currentUser.getCity()}">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                            <span class="lnr lnr-map-marker"></span>
+                        </span>
+                </div>
+
+                <div class="container-login100-form-btn p-t-25">
+                    <div class="button-wrap-container">
+                        <button type="submit" class="login100-form-btn">
+                            Save
+                        </button>
+                    </div>
+                    <div class="button-wrap-container">
+                        <button type="submit" class="login100-form-btn">
+                            Cancel
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
