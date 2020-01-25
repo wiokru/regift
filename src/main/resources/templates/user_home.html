@@ -37,7 +37,7 @@
             <span class="login100-form-title p-b-20">
                         Posts
             </span>
-            <div th:if="${!postList.isEmpty()}">
+            <div th:if="${postList != null}">
                 <ul th:object="${postList}" id="userTable" border="1">
                     <li th:each="post :${postList}">
                         <p th:text="${post.getTitle()}"></p>
@@ -48,9 +48,9 @@
                     </li>
                 </ul>
             </div>
-            <div th:if="${postList.isEmpty()}">
+            <div th:unless="${postList == null}">
                 <label class="login100-form-label p-b-35 p-l-2 p-r-2">
-                    There are no posts to show! You may add first :)
+                    There are no posts to show! You may add the first one :)
                 </label>
             </div>
         </div>

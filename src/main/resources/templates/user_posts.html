@@ -39,9 +39,12 @@
                     Your posts
             </span>
             <div class="container-login100-form-btn p-t-25">
-                <button type="submit" class="login100-form-btn">
+<!--                <button type="submit" class="login100-form-btn">-->
+<!--                    ADD NEW POST-->
+<!--                </button>-->
+                <a class="login100-form-btn" th:href="@{/user/{id}/my_posts/add_post(id = ${currentUser.getId()})}">
                     ADD NEW POST
-                </button>
+                </a>
             </div>
 
             <div th:if="${postList != null}">
@@ -50,11 +53,11 @@
                         <p th:text="${post.getTitle()}"></p>
                         <p th:text="${post.getDescription()}"></p>
                         <p th:text="${post.getCreationDate().toString()}"></p>
-                        <!--                        TODO: Post add, edit and post delete  -->
+                        <!--TODO: Post edit and delete  -->
                     </li>
                 </ul>
             </div>
-            <div th:if="${postList.isEmpty()}">
+            <div th:unless="${postList != null}">
                 <label class="login100-form-label p-b-35 p-l-2 p-r-2">
                     You have no posts yet.
                 </label>

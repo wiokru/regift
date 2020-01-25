@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "posts")
-
 public class Post implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +29,7 @@ public class Post implements Serializable{
         this.title = title;
         this.description = description;
         this.user = user;
+        this.creationDate = LocalDateTime.now();
     }
 
     public Long getId() {

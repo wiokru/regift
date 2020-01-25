@@ -24,6 +24,7 @@ public class UserHomeController {
     public ModelAndView userHomePage(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("user_home");
         modelAndView.addObject("postList", postRepository.findAll());
+        System.out.println("AAAAAAAAAAAAAAAAA " + postRepository.findAll().get(0).getUser().getEmail());
 
         this.currentUser = userRepository.findById(id).get();
         modelAndView.addObject("currentUser", this.currentUser);
