@@ -38,7 +38,9 @@ public class SignUpController {
 //            response.sendRedirect("/");
         } catch (Exception e) {
             System.out.println("XXXXXXXXXXXXXXXXXXXXXX" + e.getMessage() + '\n' + e.getLocalizedMessage());
-            return new ModelAndView("redirect:/error");
+            ModelAndView modelAndView = new ModelAndView("signup");
+            modelAndView.addObject("error_message", "User with this email already exists. If you didn't create account please contact our team.");
+            return modelAndView;
         }
     }
 }
