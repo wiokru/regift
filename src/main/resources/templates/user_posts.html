@@ -39,9 +39,6 @@
                     Your posts
             </span>
             <div class="container-login100-form-btn p-t-25">
-<!--                <button type="submit" class="login100-form-btn">-->
-<!--                    ADD NEW POST-->
-<!--                </button>-->
                 <a class="login100-form-btn" th:href="@{/user/{id}/my_posts/add_post(id = ${currentUser.getId()})}">
                     ADD NEW POST
                 </a>
@@ -54,6 +51,8 @@
                         <p th:text="${post.getDescription()}"></p>
                         <p th:text="${post.getCreationDate().toString()}"></p>
                         <!--TODO: Post edit and delete  -->
+                        <hr>
+                        <br>
                     </li>
                 </ul>
             </div>

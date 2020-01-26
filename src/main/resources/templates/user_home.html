@@ -43,12 +43,14 @@
                         <p th:text="${post.getTitle()}"></p>
                         <p th:text="${post.getDescription()}"></p>
                         <p th:text="${post.getCreationDate().toString()}"></p>
-                        <p th:text="${post.getUser().getEmail()}"></p>
-                        <p th:text="${post.getUser().getCity()}"></p>
+                        <p th:text="${post.getUser()?.getEmail()}"></p>
+                        <p th:text="${post.getUser()?.getCity()}"></p>
+                        <hr>
+                        <br>
                     </li>
                 </ul>
             </div>
-            <div th:unless="${postList == null}">
+            <div th:unless="${postList != null}">
                 <label class="login100-form-label p-b-35 p-l-2 p-r-2">
                     There are no posts to show! You may add the first one :)
                 </label>

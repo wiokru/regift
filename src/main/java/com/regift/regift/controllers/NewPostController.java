@@ -43,7 +43,7 @@ public class NewPostController {
             return modelAndView;
         }
         catch (Exception e) {
-            ModelAndView modelAndView = new ModelAndView("redirect:/user/" + id.toString() + "/my_posts/add_post");
+            ModelAndView modelAndView = new ModelAndView("user_posts");
             modelAndView.addObject("currentUser", currentUser);
             modelAndView.addObject("error_message", e.getMessage());
             return modelAndView;

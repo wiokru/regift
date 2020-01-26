@@ -18,35 +18,33 @@ public class UserHomeController {
     @Autowired
     private PostRepository postRepository;
 
-    private User currentUser;
-
     @GetMapping("/user/{id}/home")
     public ModelAndView userHomePage(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("user_home");
+        Optional<User> currentUser = userRepository.findById(id);
         modelAndView.addObject("postList", postRepository.findAll());
         System.out.println("AAAAAAAAAAAAAAAAA " + postRepository.findAll().get(0).getUser().getEmail());
 
-        this.currentUser = userRepository.findById(id).get();
-        modelAndView.addObject("currentUser", this.currentUser);
+        modelAndView.addObject("currentUser", currentUser.get());
         return modelAndView;
     }
 
     @GetMapping("/user/{id}/my_posts")
     public ModelAndView userPostPage(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("user_posts");
-//        Optional<User> currentUser = userRepository.findById(id);
+        Optional<User> currentUser = userRepository.findById(id);
 
-        modelAndView.addObject("postList", postRepository.findByUser(currentUser));
-        modelAndView.addObject("currentUser", currentUser);
+        modelAndView.addObject("postList", postRepository.findByUser(currentUser.get()));
+        modelAndView.addObject("currentUser", currentUser.get());
         return modelAndView;
     }
 
     @GetMapping("/user/{id}/my_info")
     public ModelAndView userInfoPage(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("user_info");
-//        Optional<User> currentUser = userRepository.findById(id);
+        Optional<User> currentUser = userRepository.findById(id);
 
-        modelAndView.addObject("currentUser", currentUser);
+        modelAndView.addObject("currentUser", currentUser.get());
         return modelAndView;
     }
 
@@ -56,6 +54,7 @@ public class UserHomeController {
                                          @ModelAttribute("surname") String surname,
                                          @ModelAttribute("email") String email,
                                          @ModelAttribute("city") String city) {
+        User currentUser = userRepository.findById(id).get();
         try {
             currentUser.setName(name);
             currentUser.setSurname(surname);
@@ -63,13 +62,17 @@ public class UserHomeController {
             currentUser.setCity(city);
 
             userRepository.save(currentUser);
-            ModelAndView modelAndView = new ModelAndView("redirect:/user/" + id.toString() + "/my_info");
-            modelAndView.addObject("info_message", "User updated successfully.");
+            ModelAndView modelAndView = new ModelAndView("user_info");
+            modelAndView.addObject("currentUser", currentUser);
+            modelAndView.addObject("is_success", Boolean.TRUE);
+            modelAndView.addObject("message", "User updated successfully.");
             return modelAndView;
         }
         catch (Exception e) {
-            ModelAndView modelAndView = new ModelAndView("redirect:/user/" + id.toString() + "/my_info");
-            modelAndView.addObject("error_message", e.getMessage());
+            ModelAndView modelAndView = new ModelAndView("user_info");
+            modelAndView.addObject("currentUser", currentUser);
+            modelAndView.addObject("is_success", Boolean.FALSE);
+            modelAndView.addObject("message", e.getMessage());
             return modelAndView;
         }
     }

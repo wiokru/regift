@@ -544,12 +544,16 @@ iframe {
     text-align: center;
     font-family: Raleway-Regular;
     color: #c80000;
+    width: 100%;
+    display: block;
 }
 
 .info-message {
     text-align: center;
     font-family: Raleway-Regular;
     color: #4CAF50;
+    width: 100%;
+    display: block;
 }
 
 .button-wrap-container {
