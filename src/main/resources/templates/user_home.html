@@ -42,7 +42,7 @@
                     <li th:each="post :${postList}">
                         <p th:text="${post.getTitle()}"></p>
                         <p th:text="${post.getDescription()}"></p>
-                        <p th:text="${post.getCreationDate().toString()}"></p>
+                        <p th:text="${post.displayCreationDate()}"></p>
                         <p th:text="${post.getUser()?.getEmail()}"></p>
                         <p th:text="${post.getUser()?.getCity()}"></p>
                         <hr>

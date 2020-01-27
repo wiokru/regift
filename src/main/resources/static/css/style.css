@@ -350,6 +350,32 @@ iframe {
     transition: all 0.4s;
 }
 
+.symbol-links100 {
+    font-size: 24px;
+    color: #999999;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 25px;
+    bottom: 0;
+    right: 0;
+    float: right;
+    height: 100%;
+    padding-left: 23px;
+    padding-bottom: 5px;
+    pointer-events: none;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
 .input100:focus + .focus-input100 + .symbol-input100 {
     color: #d33f8d;
     padding-left: 18px;
@@ -560,4 +586,9 @@ iframe {
     float: right;
     width: 50%;
     padding: 10px;
+}
+
+.post-display-style {
+    display: block;
+    text-overflow: ellipsis;
 }

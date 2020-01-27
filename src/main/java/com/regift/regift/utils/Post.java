@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "posts")
@@ -66,6 +67,10 @@ public class Post implements Serializable{
 
     public LocalDateTime getCreationDate() {
         return creationDate;
+    }
+
+    public String displayCreationDate() {
+        return this.creationDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"));
     }
 
     public void setCreationDate(LocalDateTime creationDate) {

@@ -38,7 +38,7 @@
             <span class="login100-form-title p-b-20">
                     Your posts
             </span>
-            <div class="container-login100-form-btn p-t-25">
+            <div class="container-login100-form-btn p-t-25 p-b-15">
                 <a class="login100-form-btn" th:href="@{/user/{id}/my_posts/add_post(id = ${currentUser.getId()})}">
                     ADD NEW POST
                 </a>
@@ -47,12 +47,16 @@
             <div th:if="${postList != null}">
                 <ul th:object="${postList}" id="userTable" border="1">
                     <li th:each="post :${postList}">
-                        <p th:text="${post.getTitle()}"></p>
-                        <p th:text="${post.getDescription()}"></p>
-                        <p th:text="${post.getCreationDate().toString()}"></p>
+                        <p class="post-display-style" th:text="${post.getTitle()}"></p>
+                        <p class="post-display-style" th:text="${post.getDescription()}"></p>
+                        <p class="post-display-style" th:text="${post.displayCreationDate()}"></p>
                         <!--TODO: Post edit and delete  -->
-                        <hr>
+                        <span class="symbol-links100">
+                            <span class="lnr lnr-trash"></span>
+                            <span class="lnr lnr-pencil"></span>
+                        </span>
                         <br>
+                        <hr>
                     </li>
                 </ul>
             </div>
