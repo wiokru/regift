@@ -1,5 +1,7 @@
 package com.regift.regift.utils;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -18,6 +20,7 @@ public class Post implements Serializable{
     @Column(name = "title")
     private String title;
     @Column(name = "description")
+    @Type(type = "text")
     private String description;
     @NotNull
     @Column(name = "creation_date")

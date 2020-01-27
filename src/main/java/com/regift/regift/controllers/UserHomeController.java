@@ -23,8 +23,6 @@ public class UserHomeController {
         ModelAndView modelAndView = new ModelAndView("user_home");
         Optional<User> currentUser = userRepository.findById(id);
         modelAndView.addObject("postList", postRepository.findAll());
-        System.out.println("AAAAAAAAAAAAAAAAA " + postRepository.findAll().get(0).getUser().getEmail());
-
         modelAndView.addObject("currentUser", currentUser.get());
         return modelAndView;
     }

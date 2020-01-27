@@ -60,7 +60,7 @@
                     </li>
                 </ul>
             </div>
-            <div th:unless="${postList != null}">
+            <div th:if="${postList == null}">
                 <label class="login100-form-label p-b-35 p-l-2 p-r-2">
                     You have no posts yet.
                 </label>
