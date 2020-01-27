@@ -360,15 +360,17 @@ iframe {
     display: -ms-flexbox;
     display: flex;
     align-items: center;
-    position: relative;
+    /*position: relative;*/
     border-radius: 25px;
-    bottom: 0;
-    right: 0;
+    /*bottom: 0;*/
+    /*right: 0;*/
     float: right;
     height: 100%;
     padding-left: 23px;
+    padding-right: 23px;
     padding-bottom: 5px;
-    pointer-events: none;
+    /*pointer-events: none;*/
+    clear: both;
 
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
@@ -591,4 +593,18 @@ iframe {
 .post-display-style {
     display: block;
     text-overflow: ellipsis;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #d33f8d;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.icon-lnr-100 {
+    padding: 5px 10px 2px;
+    font-size: 24px;
 }

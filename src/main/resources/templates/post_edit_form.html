@@ -18,6 +18,10 @@
 <body>
 
 <!--/*@thymesVar id="currentUser" type="com.regift.regift.utils.User"*/-->
+<!--/*@thymesVar id="currentPost" type="com.regift.regift.utils.Post"*/-->
+<!--/*@thymesVar id="is_success" type="java.lang.Boolean"*/-->
+<!--/*@thymesVar id="message" type="java.lang.String"*/-->
+
 
 <div class="limiter">
     <div class="container-login100">
@@ -34,11 +38,11 @@
         <div class="wrap-login300 p-l-50 p-r-50 p-t-55 p-b-30">
             <form class="login100-form validate-form" th:method="POST">
                 <span class="login100-form-title p-b-20">
-                        Add new post
+                        Edit post
                 </span>
 
                 <div class="wrap-input100 m-b-16">
-                    <input class="input100" type="text" th:name="title" placeholder="Title">
+                    <input class="input100" type="text" th:name="title" th:value="${currentPost.getTitle()}">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <span class="lnr lnr-tag"></span>
@@ -46,21 +50,22 @@
                 </div>
                 <div class="wrap-input100 m-b-16">
                     <textarea class="input200" th:name="description" rows="5" cols="20" role="textbox"
-                              placeholder="Description" ></textarea>
+                              th:text="${currentPost.getDescription()}"></textarea>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                             <span class="lnr lnr-pencil"></span>
                         </span>
                 </div>
 
-                <div class="m-l-4 p-t-4">
-                    <!--/*@thymesVar id="error_message" type="java.lang.String"*/-->
-                    <label class="error-message" th:text="${error_message}"></label>
+                <div th:if="${is_success}">
+                    <div class="m-l-4 p-t-4">
+                        <label class="info-message" th:text="${message}"></label>
+                    </div>
                 </div>
-
-                <div class="m-l-4 p-t-4">
-                    <!--/*@thymesVar id="info_message" type="java.lang.String"*/-->
-                    <label class="info-message" th:text="${info_message}"></label>
+                <div th:unless="${is_success}">
+                    <div class="m-l-4 p-t-4">
+                        <label class="error-message" th:text="${message}"></label>
+                    </div>
                 </div>
 
                 <div class="container-login100-form-btn p-t-25">
