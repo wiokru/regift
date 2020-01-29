@@ -44,7 +44,7 @@
                 </a>
             </div>
 
-            <div th:if="${postList != null}">
+            <div th:if="${!postList.isEmpty()}">
                 <ul th:object="${postList}" id="userTable" border="1">
                     <li th:each="post :${postList}">
                         <p class="post-display-style" th:text="${post.getTitle()}"></p>
@@ -59,7 +59,7 @@
                     </li>
                 </ul>
             </div>
-            <div th:if="${postList == null}">
+            <div th:if="${postList.isEmpty()}">
                 <label class="login100-form-label p-b-35 p-l-2 p-r-2">
                     You have no posts yet.
                 </label>
