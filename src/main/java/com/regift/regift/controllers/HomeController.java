@@ -52,7 +52,7 @@ public class HomeController {
             }
             else {
                 LOGGER.setLevel(Level.INFO);
-                LOGGER.info(result.get(0).getEmail() + Const.USER_DONT_EXISTS_LOG);
+                LOGGER.info(email + Const.USER_DONT_EXISTS_LOG);
                 ModelAndView modelAndView = new ModelAndView("home");
                 modelAndView.addObject("error_message", Const.USER_DONT_EXISTS);
                 return modelAndView;
