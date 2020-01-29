@@ -641,3 +641,15 @@ hr {
     font-size: 12px;
     line-height: 1.7;
 }
+
+.search-input-container {
+    float: right;
+    width: 70%;
+    padding: 10px;
+}
+
+.search-button-container {
+    float: right;
+    width: 30%;
+    padding: 10px;
+}

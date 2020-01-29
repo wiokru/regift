@@ -102,4 +102,24 @@ public class UserHomeController {
             return modelAndView;
         }
     }
+
+    @PostMapping("/user/{id}/home")
+    public ModelAndView searchPostByCity(@PathVariable("id") Long id,
+                                          @ModelAttribute("city") String city) {
+
+        ModelAndView modelAndView = new ModelAndView("user_home");
+        Optional<User> currentUser = userRepository.findById(id);
+
+        List<Post> posts = postRepository.findAll().stream()
+                .filter(post -> post.getUser().getCity().toUpperCase().equals(city.toUpperCase()))
+                .sorted(Comparator.comparing(Post::getCreationDate).reversed())
+                .collect(Collectors.toList());
+
+        LOGGER.setLevel(Level.INFO);
+        LOGGER.info(Const.ALL_POST_SIZE + posts.size());
+
+        modelAndView.addObject("postList", posts);
+        modelAndView.addObject("currentUser", currentUser.get());
+        return modelAndView;
+    }
 }

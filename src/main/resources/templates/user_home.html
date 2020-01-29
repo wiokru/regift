@@ -37,16 +37,40 @@
             <span class="login100-form-title p-b-20">
                         Posts
             </span>
+
+            <div class="container-login100-form-btn p-t-25">
+                <form class="login100-form validate-form" th:method="POST">
+                    <div class="search-input-container">
+                        <div class="wrap-input100 m-b-16">
+                            <input class="input100" type="text" th:name="city" placeholder="Search by city...">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                        <span class="lnr lnr-magnifier"></span>
+                    </span>
+                        </div>
+                    </div>
+                    <div class="search-button-container">
+                        <button type="submit" class="login100-form-btn">
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+
             <div th:if="${!postList.isEmpty()}">
                 <ul th:object="${postList}" id="userTable" border="1">
                     <li th:each="post :${postList}">
                         <p class="post-title" th:text="${post.getTitle()}"></p>
                         <p th:text="${post.getDescription()}"></p>
                         <br>
-                        <p class="lnr lnr-user">  <span class="post-user-info" th:text="${post.getUser()?.getFullName()}"> </span></p>
-                        <p class="lnr lnr-envelope">  <span class="post-email" th:text="${post.getUser()?.getEmail()}"> </span></p>
-                        <p class="lnr lnr-map-marker">  <span class="post-location" th:text="${post.getUser()?.getCity()}"></span></p>
-                        <p class="lnr lnr-calendar-full">  <span class="post-creation-date" th:text="${post.displayCreationDate()}"></span></p>
+                        <p class="lnr lnr-user"><span class="post-user-info"
+                                                      th:text="${post.getUser()?.getFullName()}"> </span></p>
+                        <p class="lnr lnr-envelope"><span class="post-email"
+                                                          th:text="${post.getUser()?.getEmail()}"> </span></p>
+                        <p class="lnr lnr-map-marker"><span class="post-location"
+                                                            th:text="${post.getUser()?.getCity()}"></span></p>
+                        <p class="lnr lnr-calendar-full"><span class="post-creation-date"
+                                                               th:text="${post.displayCreationDate()}"></span></p>
                         <hr>
                         <br>
                     </li>
