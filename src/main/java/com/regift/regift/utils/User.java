@@ -3,7 +3,6 @@ package com.regift.regift.utils;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"}, name = "uniqueEmailConstraint")})
@@ -24,8 +23,6 @@ public class User implements Serializable {
     private String password;
     @Column(name = "city")
     private String city;
-//    @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
-//    private List<Post> posts;
 
     public User() {}
 

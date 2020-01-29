@@ -44,12 +44,12 @@
                 </a>
             </div>
 
-            <div th:if="${postList != null}">
+            <div th:if="${!postList.isEmpty()}">
                 <ul th:object="${postList}" id="userTable" border="1">
                     <li th:each="post :${postList}">
-                        <p class="post-display-style" th:text="${post.getTitle()}"></p>
-                        <p class="post-display-style" th:text="${post.getDescription()}"></p>
-                        <p class="post-display-style" th:text="${post.displayCreationDate()}"></p>
+                        <p class="post-title" th:text="${post.getTitle()}"></p>
+                        <p th:text="${post.getDescription()}"></p>
+                        <p class="lnr lnr-calendar-full">  <span class="post-creation-date" th:text="${post.displayCreationDate()}"></span></p>
                         <div class="symbol-links100">
                             <a th:href="@{/user/{id}/my_posts/delete/{post_id}(id = ${currentUser.getId()}, post_id = ${post.getId()})}"><span class="icon-lnr-100 lnr lnr-trash"></span></a>
                             <a th:href="@{/user/{id}/my_posts/edit/{post_id}(id = ${currentUser.getId()}, post_id = ${post?.getId()})}"><span class="icon-lnr-100 lnr lnr-pencil"></span></a>
@@ -59,7 +59,7 @@
                     </li>
                 </ul>
             </div>
-            <div th:if="${postList == null}">
+            <div th:if="${postList.isEmpty()}">
                 <label class="login100-form-label p-b-35 p-l-2 p-r-2">
                     You have no posts yet.
                 </label>
