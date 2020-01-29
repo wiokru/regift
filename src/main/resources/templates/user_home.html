@@ -63,13 +63,13 @@
                         <p class="post-title" th:text="${post.getTitle()}"></p>
                         <p th:text="${post.getDescription()}"></p>
                         <br>
-                        <p class="lnr lnr-user"><span class="post-user-info"
-                                                      th:text="${post.getUser()?.getFullName()}"> </span></p>
-                        <p class="lnr lnr-envelope"><span class="post-email"
-                                                          th:text="${post.getUser()?.getEmail()}"> </span></p>
-                        <p class="lnr lnr-map-marker"><span class="post-location"
+                        <p class="lnr lnr-user">  <span class="post-user-info"
+                                                      th:text="${post.getUser()?.getFullName()}"></span></p>
+                        <p class="lnr lnr-envelope">  <span class="post-email"
+                                                          th:text="${post.getUser()?.getEmail()}"></span></p>
+                        <p class="lnr lnr-map-marker">  <span class="post-location"
                                                             th:text="${post.getUser()?.getCity()}"></span></p>
-                        <p class="lnr lnr-calendar-full"><span class="post-creation-date"
+                        <p class="lnr lnr-calendar-full">  <span class="post-creation-date"
                                                                th:text="${post.displayCreationDate()}"></span></p>
                         <hr>
                         <br>
