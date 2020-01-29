@@ -81,4 +81,8 @@ public class User implements Serializable {
     public void setCity(String city) {
         this.city = city;
     }
+
+    public String getFullName() {
+        return this.name + " " + this.surname;
+    }
 }
