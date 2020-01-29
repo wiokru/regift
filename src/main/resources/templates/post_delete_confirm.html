@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/Linearicons-Free-v1.0.0/icon-font.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/utils.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}"/>
+
+    <title>ReGift</title>
+</head>
+<body>
+
+<!--/*@thymesVar id="currentUser" type="com.regift.regift.utils.User"*/-->
+<!--/*@thymesVar id="currentPost" type="com.regift.regift.utils.Post"*/-->
+
+
+<div class="limiter">
+    <div class="container-login100">
+        <div id="mySidenav" class="sidenav">
+            <a th:href="@{/user/{id}/home(id = ${currentUser.getId()})}" id="dashboard"> Dashboard <i
+                    class="icon fa fa-home fa-2x"></i></a>
+            <a th:href="@{/user/{id}/my_posts(id = ${currentUser.getId()})}" id="my_posts"> My posts <i
+                    class="icon fa fa-th-list fa-2x"></i></a>
+            <a th:href="@{/user/{id}/my_info(id = ${currentUser.getId()})}" id="my_info"> My info <i
+                    class="icon fa fa-user fa-2x"></i></a>
+            <a href="/" id="logout"> Logout <i class="icon fa fa-sign-out fa-2x"></i></a>
+        </div>
+
+        <div class="wrap-login300 p-l-50 p-r-50 p-t-55 p-b-30">
+            <form class="login100-form" th:method="POST">
+                <span class="login100-form-title p-b-20">
+                        Are you sure you want to delete this post?
+                </span>
+
+                <div class="m-l-4 p-t-4">
+                    <label class="login100-form-label p-b-35 p-l-2 p-r-2" th:text="${currentPost.getTitle()}"></label>
+                </div>
+
+                <div class="container-login100-form-btn p-t-15">
+                    <div class="button-wrap-container">
+                        <button type="submit" class="login100-form-btn">
+                            Delete
+                        </button>
+                    </div>
+                    <div class="button-wrap-container">
+                        <a th:href="@{/user/{id}/my_posts(id = ${currentUser.getId()})}" class="login100-form-btn">
+                            Cancel
+                        </a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

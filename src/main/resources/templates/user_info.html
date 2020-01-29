@@ -11,89 +11,92 @@
     <link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/utils.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}"/>
 
-    <title>ReGift - Sing up</title>
+    <title>ReGift</title>
 </head>
 <body>
 
+<!--/*@thymesVar id="currentUser" type="com.regift.regift.utils.User"*/-->
+<!--/*@thymesVar id="is_success" type="java.lang.Boolean"*/-->
+<!--/*@thymesVar id="message" type="java.lang.String"*/-->
+
+
 <div class="limiter">
     <div class="container-login100">
-        <div class="wrap-login100 p-l-50 p-r-50 p-t-45 p-b-30">
+        <div id="mySidenav" class="sidenav">
+            <a th:href="@{/user/{id}/home(id = ${currentUser.getId()})}" id="dashboard"> Dashboard <i
+                    class="icon fa fa-home fa-2x"></i></a>
+            <a th:href="@{/user/{id}/my_posts(id = ${currentUser.getId()})}" id="my_posts"> My posts <i
+                    class="icon fa fa-th-list fa-2x"></i></a>
+            <a th:href="@{/user/{id}/my_info(id = ${currentUser.getId()})}" id="my_info"> My info <i
+                    class="icon fa fa-user fa-2x"></i></a>
+            <a href="/" id="logout"> Logout <i class="icon fa fa-sign-out fa-2x"></i></a>
+        </div>
+
+        <div class="wrap-login300 p-l-50 p-r-50 p-t-55 p-b-30">
             <form class="login100-form validate-form" th:method="POST">
-                <span class="login100-form-title p-b-20">
-                    Create new account
-                </span>
+            <span class="login100-form-title p-b-20">
+                    Your info
+            </span>
+
                 <div class="wrap-input100 validate-input m-b-16" data-validate="Invalid email">
-                    <input class="input100" type="text" th:name="email" placeholder="Email">
+                    <input class="input100" type="text" th:name="email" th:value="${currentUser.getEmail()}">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                             <span class="lnr lnr-envelope"></span>
                         </span>
                 </div>
-
                 <div class="wrap-input100 validate-input m-b-16" data-validate="Name is required">
-                    <input class="input100" type="text" th:name="name" placeholder="Name">
+                    <input class="input100" type="text" th:name="name" th:value="${currentUser.getName()}">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                             <span class="lnr lnr-user"></span>
                         </span>
                 </div>
-
                 <div class="wrap-input100 validate-input m-b-16" data-validate="Surname is required">
-                    <input class="input100" type="text" th:name="surname" placeholder="Surname">
+                    <input class="input100" type="text" th:name="surname" th:value="${currentUser.getSurname()}">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                             <span class="lnr lnr-user"></span>
                         </span>
                 </div>
-
                 <div class="wrap-input100 validate-input m-b-16" data-validate="Nick is required">
-                    <input class="input100" type="text" th:name="city" placeholder="City">
+                    <input class="input100" type="text" th:name="city" th:value="${currentUser.getCity()}">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                             <span class="lnr lnr-map-marker"></span>
                         </span>
                 </div>
 
-                <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
-                    <input class="input100" type="password" th:name="password" placeholder="Password">
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-                            <span class="lnr lnr-lock"></span>
-                        </span>
+
+                <div th:if="${is_success}">
+                    <div class="m-l-4 p-t-4">
+                        <label class="info-message" th:text="${message}"></label>
+                    </div>
+                </div>
+                <div th:unless="${is_success}">
+                    <div class="m-l-4 p-t-4">
+                        <label class="error-message" th:text="${message}"></label>
+                    </div>
                 </div>
 
-                <div class="m-l-4 p-t-4">
-                    <!--/*@thymesVar id="error_message" type="java.lang.String"*/-->
-                    <label class="error-message" th:text="${error_message}"></label>
-                </div>
-
-                <div class="container-login100-form-btn p-t-20">
-                    <button type="submit" class="login100-form-btn">
-                        Register
-                    </button>
-                </div>
-
-                <div class="text-center w-full p-t-40">
-                    <a class="txt1 bo1 hov1" th:href="@{/about}">
-                        About us
-                    </a>
-                    <label class="p-r-15"></label>
-                    <a class="txt1 bo1 hov1" th:href="@{/}">
-                        Log In
-                    </a>
+                <div class="container-login100-form-btn p-t-15">
+                    <div class="button-wrap-container">
+                        <button type="submit" class="login100-form-btn">
+                            Save
+                        </button>
+                    </div>
+                    <div class="button-wrap-container">
+                        <a th:href="@{/user/{id}/my_info(id = ${currentUser.getId()})}" class="login100-form-btn">
+                            Cancel
+                        </a>
+                    </div>
                 </div>
 
             </form>
         </div>
     </div>
 </div>
-
-<script th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
-<script th:src="@{/vendor/bootstrap/js/popper.js}"></script>
-<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/vendor/select2/select2.min.js}"></script>
-<script th:src="@{/js/signup.js}"></script>
-
 </body>
 </html>

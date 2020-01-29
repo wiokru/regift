@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/Linearicons-Free-v1.0.0/icon-font.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/utils.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}"/>
+
+    <title>ReGift</title>
+</head>
+<body>
+
+<!--/*@thymesVar id="currentUser" type="com.regift.regift.utils.User"*/-->
+
+<div class="limiter">
+    <div class="container-login100">
+        <div id="mySidenav" class="sidenav">
+            <a th:href="@{/user/{id}/home(id = ${currentUser.getId()})}" id="dashboard"> Dashboard <i
+                    class="icon fa fa-home fa-2x"></i></a>
+            <a th:href="@{/user/{id}/my_posts(id = ${currentUser.getId()})}" id="my_posts"> My posts <i
+                    class="icon fa fa-th-list fa-2x"></i></a>
+            <a th:href="@{/user/{id}/my_info(id = ${currentUser.getId()})}" id="my_info"> My info <i
+                    class="icon fa fa-user fa-2x"></i></a>
+            <a href="/" id="logout"> Logout <i class="icon fa fa-sign-out fa-2x"></i></a>
+        </div>
+
+        <div class="wrap-login300 p-l-50 p-r-50 p-t-55 p-b-30">
+            <form class="login100-form validate-form" th:method="POST">
+                <span class="login100-form-title p-b-20">
+                        Add new post
+                </span>
+
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="text" th:name="title" placeholder="Title">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <span class="lnr lnr-tag"></span>
+                    </span>
+                </div>
+                <div class="wrap-input100 m-b-16">
+                    <textarea class="input200" th:name="description" rows="5" cols="20" role="textbox"
+                              placeholder="Description" ></textarea>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                            <span class="lnr lnr-pencil"></span>
+                        </span>
+                </div>
+
+                <div class="m-l-4 p-t-4">
+                    <!--/*@thymesVar id="error_message" type="java.lang.String"*/-->
+                    <label class="error-message" th:text="${error_message}"></label>
+                </div>
+
+                <div class="m-l-4 p-t-4">
+                    <!--/*@thymesVar id="info_message" type="java.lang.String"*/-->
+                    <label class="info-message" th:text="${info_message}"></label>
+                </div>
+
+                <div class="container-login100-form-btn p-t-25">
+                    <div class="button-wrap-container">
+                        <button type="submit" class="login100-form-btn">
+                            Save
+                        </button>
+                    </div>
+                    <div class="button-wrap-container">
+                        <a th:href="@{/user/{id}/my_posts(id = ${currentUser.getId()})}" class="login100-form-btn">
+                            Cancel
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

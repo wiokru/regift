@@ -212,6 +212,19 @@ iframe {
     overflow: hidden;
 }
 
+.wrap-login200 {
+    width: 900px;
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.wrap-login300 {
+    width: 90%;
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+}
 
 
 /*------------------------------------------------------------------
@@ -259,6 +272,21 @@ iframe {
     height: 62px;
     border-radius: 3px;
     padding: 0 30px 0 65px;
+}
+
+.input200 {
+    font-family: Raleway-SemiBold;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #686868;
+
+    display: block;
+    width: 100%;
+    background: #e6e6e6;
+    height: 162px;
+    border-radius: 3px;
+    padding: 0 30px 0 65px;
+    word-break: break-word;
 }
 
 
@@ -315,6 +343,34 @@ iframe {
     padding-left: 23px;
     padding-bottom: 5px;
     pointer-events: none;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.symbol-links100 {
+    font-size: 24px;
+    color: #999999;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    /*position: relative;*/
+    border-radius: 25px;
+    /*bottom: 0;*/
+    /*right: 0;*/
+    float: right;
+    height: 100%;
+    padding-left: 23px;
+    padding-right: 23px;
+    padding-bottom: 5px;
+    /*pointer-events: none;*/
+    clear: both;
 
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
@@ -510,4 +566,45 @@ iframe {
         padding-left: 15px;
         padding-right: 15px;
     }
+}
+
+.error-message {
+    text-align: center;
+    font-family: Raleway-Regular;
+    color: #c80000;
+    width: 100%;
+    display: block;
+}
+
+.info-message {
+    text-align: center;
+    font-family: Raleway-Regular;
+    color: #4CAF50;
+    width: 100%;
+    display: block;
+}
+
+.button-wrap-container {
+    float: right;
+    width: 50%;
+    padding: 10px;
+}
+
+.post-display-style {
+    display: block;
+    text-overflow: ellipsis;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #d33f8d;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.icon-lnr-100 {
+    padding: 5px 10px 2px;
+    font-size: 24px;
 }
