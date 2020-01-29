@@ -1,12 +1,15 @@
 package com.regift.regift.controllers;
 
-import com.regift.regift.utils.Post;
-import com.regift.regift.utils.PostRepository;
-import com.regift.regift.utils.User;
-import com.regift.regift.utils.UserRepository;
+import com.regift.regift.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @RestController
 public class PostCRUDController {
@@ -16,6 +19,8 @@ public class PostCRUDController {
 
     @Autowired
     private PostRepository postRepository;
+
+    private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
     @GetMapping("/user/{id}/my_posts/add_post")
@@ -37,12 +42,27 @@ public class PostCRUDController {
             Post post = new Post(title, description, currentUser);
             postRepository.save(post);
 
+            LOGGER.setLevel(Level.INFO);
+            LOGGER.info(Const.POST_ADDED_LOG);
+
             ModelAndView modelAndView = new ModelAndView("user_posts");
-            modelAndView.addObject("postList", postRepository.findByUser(currentUser));
+
+            List<Post> posts = postRepository.findByUser(currentUser).stream()
+                    .sorted(Comparator.comparing(Post::getCreationDate).reversed())
+                    .collect(Collectors.toList());
+
+            LOGGER.info(Const.USER_POST_SIZE + posts.size());
+
+            modelAndView.addObject("postList", posts);
             modelAndView.addObject("currentUser", currentUser);
             return modelAndView;
-        } catch (Exception e) {
-            ModelAndView modelAndView = new ModelAndView("user_posts");
+        }
+        catch (Exception e) {
+
+            LOGGER.setLevel(Level.INFO);
+            LOGGER.info(Const.SAVING_POST_ERROR_LOG + e.getMessage());
+
+            ModelAndView modelAndView = new ModelAndView("new_post_form");
             modelAndView.addObject("currentUser", currentUser);
             modelAndView.addObject("error_message", e.getMessage());
             return modelAndView;
@@ -68,8 +88,18 @@ public class PostCRUDController {
         Post post = postRepository.findById(postId).get();
         postRepository.delete(post);
 
+        LOGGER.setLevel(Level.INFO);
+        LOGGER.info(Const.POST_DELETED_LOG);
+
         ModelAndView modelAndView = new ModelAndView("user_posts");
-        modelAndView.addObject("postList", postRepository.findByUser(currentUser));
+
+        List<Post> posts = postRepository.findByUser(currentUser).stream()
+                .sorted(Comparator.comparing(Post::getCreationDate).reversed())
+                .collect(Collectors.toList());
+
+        LOGGER.info(Const.USER_POST_SIZE + posts.size());
+
+        modelAndView.addObject("postList", posts);
         modelAndView.addObject("currentUser", currentUser);
         return modelAndView;
     }
@@ -100,19 +130,26 @@ public class PostCRUDController {
 
             postRepository.save(post);
 
+            LOGGER.setLevel(Level.INFO);
+            LOGGER.info(Const.POST_UPDATED_LOG);
+
             ModelAndView modelAndView = new ModelAndView("post_edit_form");
             modelAndView.addObject("currentPost", post);
             modelAndView.addObject("currentUser", currentUser);
             modelAndView.addObject("is_success", Boolean.TRUE);
-            modelAndView.addObject("message", "Post updated successfully.");
+            modelAndView.addObject("message", Const.POST_UPDATED_SUCCESS);
             return modelAndView;
         }
         catch (Exception e) {
+
+            LOGGER.setLevel(Level.INFO);
+            LOGGER.info(Const.POST_UPDATED_ERROR_LOG + e.getMessage());
+
             ModelAndView modelAndView = new ModelAndView("post_edit_form");
             modelAndView.addObject("currentPost", post);
             modelAndView.addObject("currentUser", currentUser);
             modelAndView.addObject("is_success", Boolean.FALSE);
-            modelAndView.addObject("message", e.getMessage());
+            modelAndView.addObject("message", Const.POST_UPDATED_ERROR + e.getMessage());
             return modelAndView;
         }
     }

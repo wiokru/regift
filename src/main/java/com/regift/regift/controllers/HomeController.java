@@ -1,21 +1,26 @@
 package com.regift.regift.controllers;
 
+import com.regift.regift.utils.Const;
 import com.regift.regift.utils.User;
 import com.regift.regift.utils.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @RestController
 public class HomeController {
 
     @Autowired
     private UserRepository userRepository;
+    private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     @GetMapping("/")
     public ModelAndView home() {
@@ -31,19 +36,25 @@ public class HomeController {
             result = userRepository.findByEmail(email);
             if (!result.isEmpty()) {
                 if (result.get(0).getPassword().equals(password)) {
-                    System.out.println("XXXXXXXXXXXXXXXXXXX LOGIN SUCCESS");
+                    LOGGER.setLevel(Level.INFO);
+                    LOGGER.info(result.get(0).getEmail() + Const.LOGIN_SUCCESS_LOG);
+
                     return new ModelAndView("redirect:/user/" + result.get(0).getId().toString() + "/home");
-                } else {
+                }
+                else {
                     //PASSWORD INCORRECT
-                    System.out.printf("YYYYYYYYYYYYYYYYYYYY wrong pass");
+                    LOGGER.setLevel(Level.INFO);
+                    LOGGER.info(result.get(0).getEmail() + Const.WRONG_PASSWORD_LOG);
                     ModelAndView modelAndView = new ModelAndView("home");
-                    modelAndView.addObject("error_message", "Incorrect password. Please try again!");
+                    modelAndView.addObject("error_message", Const.INCORRECT_PASSWORD);
                     return modelAndView;
                 }
-            } else {
-                System.out.println("ZZZZZZZZZZZZZZZZZZZZ user dont exist - plz sign up");
+            }
+            else {
+                LOGGER.setLevel(Level.INFO);
+                LOGGER.info(result.get(0).getEmail() + Const.USER_DONT_EXISTS_LOG);
                 ModelAndView modelAndView = new ModelAndView("home");
-                modelAndView.addObject("error_message", "User don't exist. Check your email or sign up.");
+                modelAndView.addObject("error_message", Const.USER_DONT_EXISTS);
                 return modelAndView;
             }
     }
