@@ -622,6 +622,12 @@ hr {
     line-height: 1.7;
 }
 
+.post-user-info {
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
 .post-email {
     font-family: Poppins-Regular;
     font-style: italic;
